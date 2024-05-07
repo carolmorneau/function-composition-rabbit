@@ -1,5 +1,5 @@
-# GitHub Issue:
-# use-native-encoding does not take effect when combined with function composition
+# GitHub Issue: https://github.com/spring-cloud/spring-cloud-stream/issues/2945
+# use-native-encoding=true does not take effect when combined with function composition
 spring:
   cloud:
     function:
