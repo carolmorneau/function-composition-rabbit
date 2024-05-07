@@ -12,9 +12,10 @@ spring:
           consumer:
             batch-mode: true
             use-native-decoding: true # use-native-decoding=true only works when there is no function composition
+            max-attempts: 1
       rabbit:
         bindings:
-          fn1-in-0:
+          fn1|fn2-in-0:
             consumer:
               enable-batching: true
               batch-size: 3
