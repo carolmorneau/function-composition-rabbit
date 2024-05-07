@@ -1,3 +1,8 @@
+== Issue Reproduction Project Based On Spring Cloud Stream Samples
+
+* https://github.com/spring-cloud/spring-cloud-function/issues/1112
+* https://github.com/spring-cloud/spring-cloud-stream/issues/2945
+
 ==== Spring Cloud Stream Function Composition Sample
 
 In this *Spring Cloud Stream* sample, we will demo function composition with RabbitMQ.
