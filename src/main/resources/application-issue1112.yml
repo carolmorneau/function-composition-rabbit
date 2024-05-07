@@ -1,0 +1,21 @@
+# GitHub Issue: https://github.com/spring-cloud/spring-cloud-function/issues/1112
+# Messages with payloads of type ArrayList lose their elements
+spring:
+  cloud:
+    function:
+      definition: fn1
+    stream:
+      bindings:
+        fn1-in-0:
+          destination: myQueue
+          binder: rabbit
+          consumer:
+            batch-mode: true
+            use-native-decoding: false # Workaround: use-native-decoding=true and the issue goes away since conversion is not attempted
+      rabbit:
+        bindings:
+          fn1-in-0:
+            consumer:
+              enable-batching: true
+              batch-size: 3
+              receive-timeout: 200000

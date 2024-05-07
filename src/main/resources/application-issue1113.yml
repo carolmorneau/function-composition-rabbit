@@ -1,0 +1,21 @@
+# GitHub Issue:
+# use-native-encoding does not take effect when combined with function composition
+spring:
+  cloud:
+    function:
+      definition: fn1|fn2
+    stream:
+      bindings:
+        fn1|fn2-in-0:
+          destination: myQueue
+          binder: rabbit
+          consumer:
+            batch-mode: true
+            use-native-decoding: true # use-native-decoding=true only works when there is no function composition
+      rabbit:
+        bindings:
+          fn1-in-0:
+            consumer:
+              enable-batching: true
+              batch-size: 3
+              receive-timeout: 200000
