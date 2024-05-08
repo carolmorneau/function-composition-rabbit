@@ -40,7 +40,8 @@ public class FunctionCompositionDemoApplication {
 		return msg -> {
 			logger.info("fn1 called");
 			List<?> payloadList = msg.getPayload();
-			logger.info("Message<List<?>> has list with {} elements. There should be a number of elements equals to the configured batchSize", payloadList.size());
+			// With issue-1112, the items within the list are lost during payload conversion
+			logger.info("Message<List<?>> has list with {} elements. This is an issue as there should be a number of elements equals to the configured batchSize", payloadList.size());
 			return msg;
 		};
 	}
@@ -50,7 +51,8 @@ public class FunctionCompositionDemoApplication {
 		return msg -> {
 			logger.info("fn2 called");
 			List<?> payloadList = msg.getPayload();
-			logger.info("Message<List<?>> has list with {} elements. There should be a number of elements equals to the configured batchSize", payloadList.size());
+			// With issue-1112, the items within the list are lost during payload conversion
+			logger.info("Message<List<?>> has list with {} elements. This is an issue as there should be a number of elements equals to the configured batchSize", payloadList.size());
 			return msg;
 		};
 	}

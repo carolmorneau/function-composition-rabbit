@@ -1,5 +1,5 @@
 # GitHub Issue: https://github.com/spring-cloud/spring-cloud-function/issues/1112
-# Messages with payloads of type ArrayList lose their elements
+# Messages with payloads of type ArrayList lose their elements during payload conversion
 spring:
   cloud:
     function:
@@ -12,7 +12,7 @@ spring:
           consumer:
             batch-mode: true
             use-native-decoding: false # Workaround: use-native-decoding=true and the issue goes away since conversion is not attempted
-                                       # However, it is not always possible due to https://github.com/spring-cloud/spring-cloud-stream/issues/2945
+                                       # However, the workaround does not work with function composition. See https://github.com/spring-cloud/spring-cloud-stream/issues/2945
       rabbit:
         bindings:
           fn1-in-0:
